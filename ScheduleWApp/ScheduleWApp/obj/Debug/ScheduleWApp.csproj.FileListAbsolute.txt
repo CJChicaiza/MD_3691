@@ -1,0 +1,12 @@
+C:\Users\velas\OneDrive\Escritorio\Ing. Software\4to SEMESTRE\Mod. Discretos\2do Parcial\deber\MD_3691\ScheduleWApp\ScheduleWApp\obj\Debug\ScheduleWApp.csprojAssemblyReference.cache
+C:\Users\velas\OneDrive\Escritorio\Ing. Software\4to SEMESTRE\Mod. Discretos\2do Parcial\deber\MD_3691\ScheduleWApp\ScheduleWApp\obj\Debug\ScheduleWApp.Form1.resources
+C:\Users\velas\OneDrive\Escritorio\Ing. Software\4to SEMESTRE\Mod. Discretos\2do Parcial\deber\MD_3691\ScheduleWApp\ScheduleWApp\obj\Debug\ScheduleWApp.Properties.Resources.resources
+C:\Users\velas\OneDrive\Escritorio\Ing. Software\4to SEMESTRE\Mod. Discretos\2do Parcial\deber\MD_3691\ScheduleWApp\ScheduleWApp\obj\Debug\ScheduleWApp.csproj.GenerateResource.cache
+C:\Users\velas\OneDrive\Escritorio\Ing. Software\4to SEMESTRE\Mod. Discretos\2do Parcial\deber\MD_3691\ScheduleWApp\ScheduleWApp\obj\Debug\ScheduleWApp.csproj.CoreCompileInputs.cache
+C:\Users\velas\OneDrive\Escritorio\Ing. Software\4to SEMESTRE\Mod. Discretos\2do Parcial\deber\MD_3691\ScheduleWApp\ScheduleWApp\bin\Debug\ScheduleWApp.exe.config
+C:\Users\velas\OneDrive\Escritorio\Ing. Software\4to SEMESTRE\Mod. Discretos\2do Parcial\deber\MD_3691\ScheduleWApp\ScheduleWApp\bin\Debug\ScheduleWApp.exe
+C:\Users\velas\OneDrive\Escritorio\Ing. Software\4to SEMESTRE\Mod. Discretos\2do Parcial\deber\MD_3691\ScheduleWApp\ScheduleWApp\bin\Debug\ScheduleWApp.pdb
+C:\Users\velas\OneDrive\Escritorio\Ing. Software\4to SEMESTRE\Mod. Discretos\2do Parcial\deber\MD_3691\ScheduleWApp\ScheduleWApp\obj\Debug\ScheduleWApp.exe
+C:\Users\velas\OneDrive\Escritorio\Ing. Software\4to SEMESTRE\Mod. Discretos\2do Parcial\deber\MD_3691\ScheduleWApp\ScheduleWApp\obj\Debug\ScheduleWApp.pdb
+C:\Users\velas\OneDrive\Escritorio\Ing. Software\4to SEMESTRE\Mod. Discretos\2do Parcial\deber\MD_3691\ScheduleWApp\ScheduleWApp\obj\Debug\ScheduleWApp.profesor.resources
+C:\Users\velas\OneDrive\Escritorio\Ing. Software\4to SEMESTRE\Mod. Discretos\2do Parcial\deber\MD_3691\ScheduleWApp\ScheduleWApp\obj\Debug\ScheduleWApp.student.resources
