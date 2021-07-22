@@ -5,6 +5,8 @@
  */
 package ec.edu.espe.model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Chicaiza Jaya Cristopher Jennsy <cjchicaiza2@espe.edu.ec>
@@ -12,15 +14,24 @@ package ec.edu.espe.model;
 public class Subject {
     String className;
     String nrc;
-    String credits;
+    int credits;
+    int semester;
+    String hours;
+    String days;
+
+    @Override
+    public String toString() {
+        return "Subject{" + "className=" + className + ", nrc=" + nrc + ", credits=" + credits + ", semester=" + semester + ", hours=" + hours + ", days=" + days + '}';
+    }
 
     public Subject() {
     }
 
-    public Subject(String className, String nrc, String credits) {
+    public Subject(String className, String nrc, int credits, int semester) {
         this.className = className;
         this.nrc = nrc;
         this.credits = credits;
+        this.semester = semester;
     }
 
     public String getClassName() {
@@ -39,13 +50,37 @@ public class Subject {
         this.nrc = nrc;
     }
 
-    public String getCredits() {
+    public int getCredits() {
         return credits;
     }
 
-    public void setCredits(String credits) {
+    public void setCredits(int credits) {
         this.credits = credits;
     }
+
+    public int getSemester() {
+        return semester;
+    }
+
+    public void setSemester(int semester) {
+        this.semester = semester;
+    }
+
+    public String getHours() {
+        return hours;
+    }
+
+    public void setHours(String hours) {
+        this.hours = hours;
+    }
+
+    public String getDays() {
+        return days;
+    }
+
+    public void setDays(String days) {
+        this.days = days;
+    }
     
-    
+
 }
