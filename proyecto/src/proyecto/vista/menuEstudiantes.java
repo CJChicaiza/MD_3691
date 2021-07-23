@@ -5,6 +5,11 @@
  */
 package proyecto.vista;
 
+import ec.edu.espe.controller.ScheduleMaker;
+import ec.edu.espe.controller.SubjectsCSD;
+import ec.edu.espe.model.Subject;
+import java.util.ArrayList;
+
 /**
  *
  * @author COMPUTRONCEIBOS
@@ -27,21 +32,126 @@ public class menuEstudiantes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtDTest = new javax.swing.JTextArea();
+        btnShow = new javax.swing.JButton();
+        txtSemester = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        txtDTest.setColumns(20);
+        txtDTest.setRows(5);
+        jScrollPane3.setViewportView(txtDTest);
+
+        btnShow.setText("jButton1");
+        btnShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowActionPerformed(evt);
+            }
+        });
+
+        txtSemester.setText("jTextField1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 529, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(114, 114, 114)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(229, Short.MAX_VALUE)
+                .addComponent(txtSemester, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(227, 227, 227)
+                .addComponent(btnShow)
+                .addGap(221, 221, 221))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 376, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(134, 134, 134)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnShow)
+                    .addComponent(txtSemester, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(74, 74, 74)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(155, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
+        ArrayList<Subject> schedule = new ArrayList<>();
+        ScheduleMaker scheduleMaker = new ScheduleMaker();
+        schedule = scheduleMaker.StudentsSchedule(Integer.parseInt(txtSemester.getText()));
+        String f = "";
+        for (Subject subject : schedule) {
+            char flag[];
+            flag = subject.getScheduleFlag();
+            subject.setDays("");
+            for (int i = 0; i < flag.length; i++) {
+                
+                switch (flag[i]) {
+                    case 97:
+                        subject.setDays(subject.getDays() + "Lunes 7:15-9:15; ");
+                        break;
+                    case 98:
+                        subject.setDays(subject.getDays() + "Martes 7:15-9:15; ");
+                        break;
+                    case 99:
+                        subject.setDays(subject.getDays() + "Miercoles 7:15-9:15; ");
+                        break;
+                    case 100:
+                        subject.setDays(subject.getDays() + "Jueves 7:15-9:15; ");
+                        break;
+                    case 101:
+                        subject.setDays(subject.getDays() + "Viernes 7:15-9:15; ");
+                        break;
+                    case 102:
+                        subject.setDays(subject.getDays() + "Lunes 9:30-11:30; ");
+                        break;
+                    case 103:
+                        subject.setDays(subject.getDays() + "Martes 9:30-11:30; ");
+                        break;
+                    case 104:
+                        subject.setDays(subject.getDays() + "Miercoles 9:30-11:30; ");
+                        break;
+                    case 105:
+                        subject.setDays(subject.getDays() + "Jueves 9:30-11:30; ");
+                        break;
+                    case 106:
+                        subject.setDays(subject.getDays() + "Viernes 9:30-11:30; ");
+                        break;
+                    case 107:
+                        subject.setDays(subject.getDays() + "Lunes 12:00-2:00; ");
+                        break;
+                    case 108:
+                        subject.setDays(subject.getDays() + "Martes 12:00-2:00; ");
+                        break;
+                    case 109:
+                        subject.setDays(subject.getDays() + "Miercoles 12:00-2:00; ");
+                        break;
+                    case 110:
+                        subject.setDays(subject.getDays() + "Jueves 12:00-2:00; ");
+                        break;
+                    case 111:
+                        subject.setDays(subject.getDays() + "Viernes12:00-2:00; ");
+                        break;
+                    default:
+                        subject.setDays(subject.getDays() + "No se pudo asignar ");
+                        break;
+
+                }
+
+            }
+
+            f = f + subject.toString() + "\n";
+        }
+        txtDTest.setText(f);
+
+    }//GEN-LAST:event_btnShowActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +189,9 @@ public class menuEstudiantes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnShow;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextArea txtDTest;
+    private javax.swing.JTextField txtSemester;
     // End of variables declaration//GEN-END:variables
 }

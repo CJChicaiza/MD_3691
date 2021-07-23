@@ -18,11 +18,17 @@ public class Subject {
     int semester;
     String hours;
     String days;
+    char scheduleFlag[];
 
     @Override
     public String toString() {
-        return "Subject{" + "className=" + className + ", nrc=" + nrc + ", credits=" + credits + ", semester=" + semester + ", hours=" + hours + ", days=" + days + '}';
+        return "Subject{" + "className=" + className + ", nrc=" + nrc + ", credits=" + credits + ", semester=" + semester + ", days=" + days + '}';
     }
+
+ 
+
+ 
+
 
     public Subject() {
     }
@@ -81,6 +87,15 @@ public class Subject {
     public void setDays(String days) {
         this.days = days;
     }
+
+    public char[] getScheduleFlag() {
+        return scheduleFlag;
+    }
+
+    public void setScheduleFlag(char[] scheduleFlag) {
+        this.scheduleFlag = scheduleFlag;
+    }
+
     
 
 }

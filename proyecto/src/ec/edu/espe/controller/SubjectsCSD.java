@@ -88,14 +88,7 @@ public class SubjectsCSD {
         subjects.add(subjectDSADI);
         subjects.add(subjectGPS);
         
-        for (Subject subject:subjects){
-            if(subject.getSemester()==4){
-
-                
-            }
-        System.out.println(subject.toString());
         
-        }
         
         return subjects;
     }
