@@ -35,49 +35,46 @@ public class menuEstudiantes extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         txtDTest = new javax.swing.JTextArea();
         btnShow = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         txtSemester = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(801, 601));
+        setMinimumSize(new java.awt.Dimension(799, 599));
+        setPreferredSize(new java.awt.Dimension(800, 600));
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtDTest.setEditable(false);
         txtDTest.setColumns(20);
         txtDTest.setRows(5);
         jScrollPane3.setViewportView(txtDTest);
 
-        btnShow.setText("jButton1");
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 213, 670, 320));
+
+        btnShow.setText("Mostrar");
         btnShow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnShowActionPerformed(evt);
             }
         });
+        getContentPane().add(btnShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, 135, 60));
 
-        txtSemester.setText("jTextField1");
+        jLabel2.setFont(new java.awt.Font("Century Schoolbook", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("ESTUDIANTES");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 300, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(114, 114, 114)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(229, Short.MAX_VALUE)
-                .addComponent(txtSemester, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(227, 227, 227)
-                .addComponent(btnShow)
-                .addGap(221, 221, 221))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnShow)
-                    .addComponent(txtSemester, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(74, 74, 74)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(155, Short.MAX_VALUE))
-        );
+        txtSemester.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSemesterKeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtSemester, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 240, 44));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoazul3.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -153,6 +150,11 @@ public class menuEstudiantes extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnShowActionPerformed
 
+    private void txtSemesterKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSemesterKeyTyped
+        char c=evt.getKeyChar();
+        if(c<'0'||c>'9')evt.consume();
+    }//GEN-LAST:event_txtSemesterKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -190,6 +192,8 @@ public class menuEstudiantes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnShow;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea txtDTest;
     private javax.swing.JTextField txtSemester;
