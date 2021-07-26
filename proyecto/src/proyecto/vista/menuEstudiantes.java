@@ -38,6 +38,7 @@ public class menuEstudiantes extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtSemester = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        lblLvls = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(801, 601));
@@ -71,10 +72,13 @@ public class menuEstudiantes extends javax.swing.JFrame {
                 txtSemesterKeyTyped(evt);
             }
         });
-        getContentPane().add(txtSemester, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 240, 44));
+        getContentPane().add(txtSemester, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 240, 44));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoazul3.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        lblLvls.setText("jLabel3");
+        getContentPane().add(lblLvls, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -195,6 +199,7 @@ public class menuEstudiantes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lblLvls;
     private javax.swing.JTextArea txtDTest;
     private javax.swing.JTextField txtSemester;
     // End of variables declaration//GEN-END:variables

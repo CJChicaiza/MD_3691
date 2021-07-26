@@ -24,9 +24,9 @@ public class ScheduleMaker {
         scheduleFlag = waxScheduleFlag();
         int credits = 0;
 
-        for (int i = 0; i < scheduleFlag.length; i++) {
-            System.out.print(scheduleFlag[i]);
-        }
+       /* for (int i = 0; i < scheduleFlag.length; i++) {
+            //System.out.print(scheduleFlag[i]);
+        }*/
         for (Subject subject : subjects) {
             credits = subject.getCredits();
             if (credits == 8) {

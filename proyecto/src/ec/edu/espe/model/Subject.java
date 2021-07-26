@@ -22,7 +22,7 @@ public class Subject {
 
     @Override
     public String toString() {
-        return "Subject{" + "className=" + className + ", nrc=" + nrc + ", credits=" + credits + ", semester=" + semester + ", days=" + days + '}';
+        return "Materia: " + className + ", NRC: " + nrc + ", Creditos: " + credits + ", Semestre: " + semester + ", \n \t Horario: " + days + '\n';
     }
 
  
