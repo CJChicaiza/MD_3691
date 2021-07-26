@@ -22,46 +22,47 @@ public class ScheduleMaker {
         char scheduleFlag[];
         scheduleFlag = new char[15];
         scheduleFlag = waxScheduleFlag();
-        
-        for(int i = 0; i<scheduleFlag.length;i++){
+        int credits = 0;
+
+        for (int i = 0; i < scheduleFlag.length; i++) {
             System.out.print(scheduleFlag[i]);
         }
         for (Subject subject : subjects) {
-            switch (subject.getCredits()) {
-                case 8: 
-                    char flagfc[];
-                    flagfc = new char[4];
-                    boolean ffc = true;
-                    int i = 0;
-                    do {
-                        if (scheduleFlag[5 * i] != 0 && scheduleFlag[5 * i + 1] != 0 && scheduleFlag[5 * i + 2] != 0 && scheduleFlag[5 * i + 3] != 0) {
-                            int a=0;
-                            for (int z = 0; z < 4; z++) {
-                                flagfc[a] = scheduleFlag[5 * i + z];
-                                scheduleFlag[5 * i + z] = 0;
-                                a++;
-                            }
-
-                            subject.setScheduleFlag(flagfc);
-                            ffc = false;
+            credits = subject.getCredits();
+            if (credits == 8) {
+                char flagfc[];
+                flagfc = new char[4];
+                boolean ffc = true;
+                int i = 0;
+                do {
+                    if (scheduleFlag[5 * i] != 0 && scheduleFlag[5 * i + 1] != 0 && scheduleFlag[5 * i + 2] != 0 && scheduleFlag[5 * i + 3] != 0) {
+                        int a = 0;
+                        for (int z = 0; z < 4; z++) {
+                            flagfc[a] = scheduleFlag[5 * i + z];
+                            scheduleFlag[5 * i + z] = 0;
+                            a++;
                         }
-                        i++;
-                        if (i>2)
-                            ffc=false;
-                    } while (ffc == true);
-                    fSchedule.add(subject);
-                    break;
-                case 6:
-                   try{
-                        char flagsc[];
+
+                        subject.setScheduleFlag(flagfc);
+                        ffc = false;
+                    }
+                    i++;
+                    if (i > 2) {
+                        ffc = false;
+                    }
+                } while (ffc == true);
+                fSchedule.add(subject);
+            } else if (credits == 6) {
+                try {
+                    char flagsc[];
                     flagsc = new char[3];
                     boolean fsc = true;
                     int j = 0;
                     do {
                         if (scheduleFlag[5 * j] != 0 && scheduleFlag[5 * j + 2] != 0 && scheduleFlag[5 * j + 4] != 0) {
-                            int a=0;
+                            int a = 0;
                             for (int z = 0; z < 5; z = z + 2) {
-                              
+
                                 flagsc[a] = scheduleFlag[5 * j + z];
                                 scheduleFlag[5 * j + z] = 0;
                                 a++;
@@ -71,25 +72,55 @@ public class ScheduleMaker {
                             fsc = false;
                         }
                         j++;
-                        if (j>2)
-                            fsc=false;
+                        if (j > 2) {
+                            fsc = false;
+                        }
                     } while (fsc == true);
                     fSchedule.add(subject);
-                   }catch (Exception e){
-                       
-                   }
-                    break;
-                case 4:
-                    try{
-                        char flagtc[];
-                    flagtc = new char[2];
-                    boolean ftc = true;
-                    int k = 0;
+                } catch (Exception e) {
+
+                }
+            } else if (credits == 4) {
+                   //System.out.println(subject.toString());
+                char flagtc[];
+                flagtc = new char[2];
+                boolean ftc = true;
+                int k = 0;
+                int fa = 0;
+                int fb = 0;
+                do {
+                    if (scheduleFlag[5 * k + 1] != 0 && scheduleFlag[5 * k + 3] != 0) {
+                        int a = 0;
+                        for (int z = 1; z < 4; z = z + 2) {
+
+                            flagtc[a] = scheduleFlag[5 * k + z];
+                            scheduleFlag[5 * k + z] = 0;
+                            a++;
+                        }
+
+                        subject.setScheduleFlag(flagtc);
+                        ftc = false;
+                        fa = 1;
+                    }
+                    k++;
+
+                    if (k > 2) {
+                        ftc = false;
+                        fb = 1;
+                    }
+
+                } while (ftc == true);
+                //
+                k = 0;
+                ftc = true;
+                ///////////////////prueba 2
+                if (fa == 0) {
+
                     do {
-                        if (scheduleFlag[5 * k + 1] != 0 && scheduleFlag[5 * k + 3] != 0) {
-                            int a=0;
-                            for (int z = 1; z < 4; z = z + 2) {
-                             
+                        if (scheduleFlag[5 * k] != 0 && scheduleFlag[5 * k + 2] != 0) {
+                            int a = 0;
+                            for (int z = 0; z < 3; z = z = z + 2) {
+
                                 flagtc[a] = scheduleFlag[5 * k + z];
                                 scheduleFlag[5 * k + z] = 0;
                                 a++;
@@ -99,27 +130,27 @@ public class ScheduleMaker {
                             ftc = false;
                         }
                         k++;
-                        if (k>2)
-                            ftc=false;
+                        if (k > 2) {
+                            ftc = false;
+                        }
+
                     } while (ftc == true);
-                    //
-                   k=0;
- 
-                     
-                    fSchedule.add(subject);
-                    }catch(Exception e){
+                }
+
+                /*   if( flag2==1){
                         
-                    }
-                    break;
-                case 2:
-                   try{
-                        char flaglc[];
+                    }else{*/
+                fSchedule.add(subject);
+                //    }
+
+            } else if (credits == 2) {
+                try {
+                    char flaglc[];
                     flaglc = new char[4];
                     boolean flc = true;
                     int l = 0;
                     do {
                         if (scheduleFlag[l] != 0) {
-                           
 
                             flaglc[0] = scheduleFlag[l];
                             scheduleFlag[l] = 0;
@@ -128,14 +159,14 @@ public class ScheduleMaker {
                             flc = false;
                         }
                         l++;
-                        if (l>14)
-                            flc=false;
+                        if (l > 14) {
+                            flc = false;
+                        }
                     } while (flc == true);
                     fSchedule.add(subject);
-                   }catch(Exception e){
-                       
-                   }
-                    break;
+                } catch (Exception e) {
+
+                }
             }
 
         }
@@ -165,50 +196,49 @@ public class ScheduleMaker {
     public ArrayList<Subject> orderByCredits(ArrayList<Subject> subjects) {
         int i = 0;
         ArrayList<Subject> subjectsF = new ArrayList<>();
-        try{
+        try {
             for (Subject subject : subjects) {
-            if (subject.getCredits() == 8) {
-                subjectsF.add(subject);
+                if (subject.getCredits() == 8) {
+                    subjectsF.add(subject);
+                }
+                i++;
             }
-            i++;
-        }
-        }catch (Exception e){
-            
+        } catch (Exception e) {
+
         }
         i = 0;
-        try{
+        try {
             for (Subject subject : subjects) {
-            if (subject.getCredits() == 6) {
-                subjectsF.add(subject);
+                if (subject.getCredits() == 6) {
+                    subjectsF.add(subject);
+                }
+                i++;
             }
-            i++;
-        }
-        }catch (Exception e){
-            
+        } catch (Exception e) {
+
         }
         i = 0;
-        try{
+        try {
             for (Subject subject : subjects) {
-            if (subject.getCredits() == 4) {
-                subjectsF.add(subject);
+                if (subject.getCredits() == 4) {
+                    subjectsF.add(subject);
+                }
+                i++;
             }
-            i++;
+        } catch (Exception e) {
+
         }
-        }catch (Exception e){
-            
-        } 
-        i=0;
-        try{
+        i = 0;
+        try {
             for (Subject subject : subjects) {
-            if (subject.getCredits() == 2) {
-                subjectsF.add(subject);
+                if (subject.getCredits() == 2) {
+                    subjectsF.add(subject);
+                }
+                i++;
             }
-            i++;
+        } catch (Exception e) {
+
         }
-        }catch (Exception e){
-            
-        }
-        
 
         return subjectsF;
     }
