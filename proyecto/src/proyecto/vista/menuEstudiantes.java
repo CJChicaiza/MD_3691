@@ -39,11 +39,10 @@ public class menuEstudiantes extends javax.swing.JFrame {
         txtSemester = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         lblLvls = new javax.swing.JLabel();
+        txtSemester1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(801, 601));
         setMinimumSize(new java.awt.Dimension(799, 599));
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -67,6 +66,11 @@ public class menuEstudiantes extends javax.swing.JFrame {
         jLabel2.setText("ESTUDIANTES");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 300, 40));
 
+        txtSemester.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSemesterActionPerformed(evt);
+            }
+        });
         txtSemester.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtSemesterKeyTyped(evt);
@@ -79,6 +83,13 @@ public class menuEstudiantes extends javax.swing.JFrame {
 
         lblLvls.setText("jLabel3");
         getContentPane().add(lblLvls, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
+
+        txtSemester1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSemester1KeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtSemester1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 240, 44));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -159,6 +170,14 @@ public class menuEstudiantes extends javax.swing.JFrame {
         if(c<'0'||c>'9')evt.consume();
     }//GEN-LAST:event_txtSemesterKeyTyped
 
+    private void txtSemester1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSemester1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSemester1KeyTyped
+
+    private void txtSemesterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSemesterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSemesterActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -202,5 +221,6 @@ public class menuEstudiantes extends javax.swing.JFrame {
     private javax.swing.JLabel lblLvls;
     private javax.swing.JTextArea txtDTest;
     private javax.swing.JTextField txtSemester;
+    private javax.swing.JTextField txtSemester1;
     // End of variables declaration//GEN-END:variables
 }

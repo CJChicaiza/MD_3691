@@ -5,6 +5,12 @@
  */
 package proyecto.vista;
 
+import ec.edu.espe.controller.ScheduleMakerT;
+import ec.edu.espe.controller.SubjectsTeacher;
+import ec.edu.espe.model.SubjectM;
+import java.awt.event.ItemEvent;
+import java.util.ArrayList;
+
 /**
  *
  * @author COMPUTRONCEIBOS
@@ -28,17 +34,116 @@ public class menuProfesores extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel5 = new javax.swing.JLabel();
+        btnShow = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtDTest = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        txtDominio = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(null);
+        setBackground(new java.awt.Color(51, 102, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoazul3.jpg"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        btnShow.setText("Mostrar");
+        btnShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 160, 50));
+
+        txtDTest.setColumns(20);
+        txtDTest.setRows(5);
+        jScrollPane2.setViewportView(txtDTest);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 530, 250));
+
+        jLabel1.setFont(new java.awt.Font("Matura MT Script Capitals", 0, 36)); // NOI18N
+        jLabel1.setText("Horario Profesores");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 400, 50));
+
+        txtDominio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Programacion", "DesarrolloAplicaciones", "IngenieriaRequisitos", "ArquitecturaSoftware", "Tecnica" }));
+        getContentPane().add(txtDominio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 120, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
+        //String dominio= (String) txtDominio.getSelectedItem();
+        ArrayList<SubjectM>schedule = new ArrayList<>();
+        ScheduleMakerT scheduleMaker = new ScheduleMakerT();
+        //schedule= scheduleMaker.TeachersSchedule((String) txtDominio.getSelectedItem());
+        //schedule = scheduleMaker.TeachersSchedule(Integer.parseInt(txtSemester.getText()));
+        schedule =scheduleMaker.TeachersSchedule((String)txtDominio.getSelectedItem());
+        
+        String f="";
+        for(SubjectM subject : schedule){
+            char flag[];
+            flag = subject.getScheduleFlag();
+            subject.setDays("");
+            
+            for(int i=0;i<flag.length;i++){
+                switch (flag[i]){
+                    case 97:
+                        subject.setDays(subject.getDays() + "Lunes 7:15-9:15;");
+                        break;
+                    case 98:
+                        subject.setDays(subject.getDays() + "Martes 7:15-9:15; ");
+                        break;
+                    case 99:
+                        subject.setDays(subject.getDays() + "Miercoles 7:15-9:15; ");
+                        break;
+                    case 100:
+                        subject.setDays(subject.getDays() + "Jueves 7:15-9:15; ");
+                        break;
+                    case 101:
+                        subject.setDays(subject.getDays() + "Viernes 7:15-9:15; ");
+                        break;
+                    case 102:
+                        subject.setDays(subject.getDays() + "Lunes 9:30-11:30; ");
+                        break;
+                    case 103:
+                        subject.setDays(subject.getDays() + "Martes 9:30-11:30; ");
+                        break;
+                    case 104:
+                        subject.setDays(subject.getDays() + "Miercoles 9:30-11:30; ");
+                        break;
+                    case 105:
+                        subject.setDays(subject.getDays() + "Jueves 9:30-11:30; ");
+                        break;
+                    case 106:
+                        subject.setDays(subject.getDays() + "Viernes 9:30-11:30; ");
+                        break;
+                    case 107:
+                        subject.setDays(subject.getDays() + "Lunes 12:00-2:00; ");
+                        break;
+                    case 108:
+                        subject.setDays(subject.getDays() + "Martes 12:00-2:00; ");
+                        break;
+                    case 109:
+                        subject.setDays(subject.getDays() + "Miercoles 12:00-2:00; ");
+                        break;
+                    case 110:
+                        subject.setDays(subject.getDays() + "Jueves 12:00-2:00; ");
+                        break;
+                    case 111:
+                        subject.setDays(subject.getDays() + "Viernes12:00-2:00; ");
+                        break;
+                    default:
+                        subject.setDays(subject.getDays() + "No se pudo asignar ");
+                        break;
+                    
+                }
+            }
+            f = f+subject.toString() + "\n";
+            
+        }
+        txtDTest.setText(f);
+          
+    }//GEN-LAST:event_btnShowActionPerformed
 
     /**
      * @param args the command line arguments
@@ -74,8 +179,20 @@ public class menuProfesores extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void itemStateChanged(ItemEvent e) {
+        if (e.getSource()==txtDominio) {
+            String dominio=(String)txtDominio.getSelectedItem();
+            setTitle(dominio);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnShow;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea txtDTest;
+    private javax.swing.JComboBox<String> txtDominio;
     // End of variables declaration//GEN-END:variables
 }
