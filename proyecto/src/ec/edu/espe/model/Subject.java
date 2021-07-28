@@ -19,10 +19,29 @@ public class Subject {
     String hours;
     String days;
     char scheduleFlag[];
+    String dom;
 
     @Override
     public String toString() {
         return "Materia: " + className + ", NRC: " + nrc + ", Creditos: " + credits + ", Semestre: " + semester + ", \n \t Horario: " + days + '\n';
+    }
+
+    public Subject(String className, String nrc, int credits, int semester, String dom) {
+        this.className = className;
+        this.nrc = nrc;
+        this.credits = credits;
+        this.semester = semester;
+        this.dom = dom;
+    }
+
+    
+    
+    public String getDom() {
+        return dom;
+    }
+
+    public void setDom(String dom) {
+        this.dom = dom;
     }
 
  

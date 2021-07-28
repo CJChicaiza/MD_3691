@@ -7,6 +7,7 @@ package proyecto.vista;
 
 import ec.edu.espe.controller.ScheduleMakerT;
 import ec.edu.espe.controller.SubjectsTeacher;
+import ec.edu.espe.model.Subject;
 import ec.edu.espe.model.SubjectM;
 import java.awt.event.ItemEvent;
 import java.util.ArrayList;
@@ -79,14 +80,14 @@ public class menuProfesores extends javax.swing.JFrame {
 
     private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
         //String dominio= (String) txtDominio.getSelectedItem();
-        ArrayList<SubjectM>schedule = new ArrayList<>();
+        ArrayList<Subject>schedule = new ArrayList<>();
         ScheduleMakerT scheduleMaker = new ScheduleMakerT();
         //schedule= scheduleMaker.TeachersSchedule((String) txtDominio.getSelectedItem());
         //schedule = scheduleMaker.TeachersSchedule(Integer.parseInt(txtSemester.getText()));
         schedule =scheduleMaker.TeachersSchedule((String)txtDominio.getSelectedItem());
         
         String f="";
-        for(SubjectM subject : schedule){
+        for(Subject subject : schedule){
             char flag[];
             flag = subject.getScheduleFlag();
             subject.setDays("");

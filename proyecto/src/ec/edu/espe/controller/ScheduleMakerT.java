@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.controller;
 
+import ec.edu.espe.model.Subject;
 import ec.edu.espe.model.SubjectM;
 import java.util.ArrayList;
 
@@ -13,22 +14,21 @@ import java.util.ArrayList;
  * @author COMPUTRONCEIBOS
  */
 public class ScheduleMakerT {
-    
-       public ArrayList<SubjectM> TeachersSchedule(String dominio) {
-           
-        //System.out.print(dominio);
-        ArrayList<SubjectM> subjects = new ArrayList<>();
-        ArrayList<SubjectM> fSchedule = new ArrayList<>();
-        subjects = getDominioSubjects(dominio);
+
+    public ArrayList<Subject> TeachersSchedule(String dom) {
+
+        ArrayList<Subject> subjects = new ArrayList<>();
+        ArrayList<Subject> fSchedule = new ArrayList<>();
+        subjects = getSemesterSubjects(dom);
         char scheduleFlag[];
         scheduleFlag = new char[15];
         scheduleFlag = waxScheduleFlag();
         int credits = 0;
 
-       /* for (int i = 0; i < scheduleFlag.length; i++) {
+        /* for (int i = 0; i < scheduleFlag.length; i++) {
             //System.out.print(scheduleFlag[i]);
         }*/
-        for (SubjectM subject : subjects) {
+        for (Subject subject : subjects) {
             credits = subject.getCredits();
             if (credits == 8) {
                 char flagfc[];
@@ -82,7 +82,7 @@ public class ScheduleMakerT {
 
                 }
             } else if (credits == 4) {
-                   //System.out.println(subject.toString());
+                //System.out.println(subject.toString());
                 char flagtc[];
                 flagtc = new char[2];
                 boolean ftc = true;
@@ -174,88 +174,18 @@ public class ScheduleMakerT {
 
         return fSchedule;
     }
-     
-      public ArrayList<SubjectM> ordeyByArea(ArrayList<SubjectM> subjects){
-          
-          int i = 0;
-        ArrayList<SubjectM> subjectsF = new ArrayList<>();
-        try {
-            for (SubjectM subject : subjects) {
-                if (subject.getDominio().equals("Programacion")) {
-                    subjectsF.add(subject);
-                }
-                i++;
-            }
-        } catch (Exception e) {
 
-        }
-        i = 0;
-        try {
-            for (SubjectM subject : subjects) {
-                if (subject.getDominio().equals("IngenieraRequisitos")) {
-                    subjectsF.add(subject);
-                }
-                i++;
-            }
-        } catch (Exception e) {
+    public ArrayList<Subject> getSemesterSubjects(String dom) {
 
-        }
-        i = 0;
-        try {
-            for (SubjectM subject : subjects) {
-                if (subject.getDominio().equals("DesarrolloAplicaciones")) {
-                    subjectsF.add(subject);
-                }
-                i++;
-            }
-        } catch (Exception e) {
+        SubjectsCSD subjectsCSD = new SubjectsCSD();
+        ArrayList<Subject> allSubjects = new ArrayList<>();
+        ArrayList<Subject> semesterSubjects = new ArrayList<>();
 
-        }
-        i = 0;
-        try {
-            for (SubjectM subject : subjects) {
-                if (subject.getDominio().equals("ArquitecturaSoftware")) {
-                    subjectsF.add(subject);
-                }
-                i++;
-            }
-        } catch (Exception e) {
-
-        }
-
-        return subjectsF;
-        
-       
-    }         
-       
-     public ArrayList<SubjectM> getDominioSubjects(String dominio){
-        SubjectsTeacher subjectsTC = new SubjectsTeacher();
-        ArrayList<SubjectM> allSubjects = new ArrayList<>();
-        ArrayList<SubjectM> dominioSubjects = new ArrayList<>();
-        
-        allSubjects = subjectsTC.GetSubjectsM();
-        String t="";
-        
-        for(SubjectM subject : allSubjects){
-            if(subject.getDominio().equals(dominio)){
-                dominioSubjects.add(subject);
-            }
-        }
-        dominioSubjects = orderByCredits(dominioSubjects);
-        return dominioSubjects;
-       
-    }    
-     public ArrayList<SubjectM> getSemesterSubjects(int semester) {
-
-        SubjectsTeacher subjectsM = new SubjectsTeacher();
-        ArrayList<SubjectM> allSubjects = new ArrayList<>();
-        ArrayList<SubjectM> semesterSubjects = new ArrayList<>();
-
-        allSubjects = subjectsM.GetSubjectsM();
+        allSubjects = subjectsCSD.GetSubjects();
         String t = "";
 
-        for (SubjectM subject : allSubjects) {
-            if (subject.getSemester() == semester) {
+        for (Subject subject : allSubjects) {
+            if (dom.equals(subject.getDom())) {
                 semesterSubjects.add(subject);
             }
 
@@ -263,12 +193,12 @@ public class ScheduleMakerT {
         semesterSubjects = orderByCredits(semesterSubjects);
         return semesterSubjects;
     }
-     
-     public ArrayList<SubjectM> orderByCredits(ArrayList<SubjectM> subjects) {
+
+    public ArrayList<Subject> orderByCredits(ArrayList<Subject> subjects) {
         int i = 0;
-        ArrayList<SubjectM> subjectsF = new ArrayList<>();
+        ArrayList<Subject> subjectsF = new ArrayList<>();
         try {
-            for (SubjectM subject : subjects) {
+            for (Subject subject : subjects) {
                 if (subject.getCredits() == 8) {
                     subjectsF.add(subject);
                 }
@@ -279,7 +209,7 @@ public class ScheduleMakerT {
         }
         i = 0;
         try {
-            for (SubjectM subject : subjects) {
+            for (Subject subject : subjects) {
                 if (subject.getCredits() == 6) {
                     subjectsF.add(subject);
                 }
@@ -290,7 +220,7 @@ public class ScheduleMakerT {
         }
         i = 0;
         try {
-            for (SubjectM subject : subjects) {
+            for (Subject subject : subjects) {
                 if (subject.getCredits() == 4) {
                     subjectsF.add(subject);
                 }
@@ -301,7 +231,7 @@ public class ScheduleMakerT {
         }
         i = 0;
         try {
-            for (SubjectM subject : subjects) {
+            for (Subject subject : subjects) {
                 if (subject.getCredits() == 2) {
                     subjectsF.add(subject);
                 }
@@ -314,8 +244,6 @@ public class ScheduleMakerT {
         return subjectsF;
     }
 
-   
-            
     public char[] waxScheduleFlag() {
         char array[];
         array = new char[15];

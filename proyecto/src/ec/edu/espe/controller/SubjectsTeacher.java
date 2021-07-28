@@ -24,7 +24,7 @@ public class SubjectsTeacher {
         SubjectM subjectPOO = new SubjectM("Programación Orientada a Objetos", "2837", 8, 2,"Programacion");
         SubjectM subjectCV = new SubjectM("CalculoVectorial", "2857", 4, 2,"Tecnica");
         SubjectM subjectED = new SubjectM("Ecuaciones Diferenciales", "2871", 4, 2,"Tecnica");
-        SubjectM subjectEDD = new SubjectM("Estructura de Datos", "3612", 6, 3,"Programacion");
+        SubjectM subjectEDD = new SubjectM("Estructura de Datos", "3612", 6, 3,"Bases de Datos");
         SubjectM subjectMDS = new SubjectM("Modelos Discretos para Ingenieria SO", "3621", 6, 3,"IngenieriaRequisitos");
         SubjectM subjectCD = new SubjectM("Computación Digital", "4527", 6, 4,"Programacion");
         SubjectM subjectMN = new SubjectM("Metodos Numericos", "4537", 6, 4,"Programacion");
