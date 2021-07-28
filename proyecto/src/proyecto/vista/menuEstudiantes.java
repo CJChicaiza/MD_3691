@@ -8,6 +8,7 @@ package proyecto.vista;
 import ec.edu.espe.controller.ScheduleMaker;
 import ec.edu.espe.controller.SubjectsCSD;
 import ec.edu.espe.model.Subject;
+import java.awt.event.ItemEvent;
 import java.util.ArrayList;
 
 /**
@@ -36,14 +37,11 @@ public class menuEstudiantes extends javax.swing.JFrame {
         txtDTest = new javax.swing.JTextArea();
         btnShow = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        txtSemester = new javax.swing.JTextField();
+        txtSemester = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        lblLvls = new javax.swing.JLabel();
-        txtSemester1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(799, 599));
-        setPreferredSize(new java.awt.Dimension(900, 650));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -52,7 +50,7 @@ public class menuEstudiantes extends javax.swing.JFrame {
         txtDTest.setRows(5);
         jScrollPane3.setViewportView(txtDTest);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 213, 670, 320));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 670, 320));
 
         btnShow.setText("Mostrar");
         btnShow.addActionListener(new java.awt.event.ActionListener() {
@@ -67,30 +65,13 @@ public class menuEstudiantes extends javax.swing.JFrame {
         jLabel2.setText("ESTUDIANTES");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 300, 40));
 
-        txtSemester.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSemesterActionPerformed(evt);
-            }
-        });
-        txtSemester.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtSemesterKeyTyped(evt);
-            }
-        });
-        getContentPane().add(txtSemester, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 240, 44));
+        txtSemester.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" }));
+        getContentPane().add(txtSemester, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 80, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoazul3.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        lblLvls.setText("jLabel3");
-        getContentPane().add(lblLvls, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
-
-        txtSemester1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtSemester1KeyTyped(evt);
-            }
-        });
-        getContentPane().add(txtSemester1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 240, 44));
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Selecione el Semestre");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -98,7 +79,8 @@ public class menuEstudiantes extends javax.swing.JFrame {
     private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
         ArrayList<Subject> schedule = new ArrayList<>();
         ScheduleMaker scheduleMaker = new ScheduleMaker();
-        schedule = scheduleMaker.StudentsSchedule(Integer.parseInt(txtSemester.getText()));
+        schedule = scheduleMaker.StudentsSchedule(Integer.parseInt((String) txtSemester.getSelectedItem()));
+     
         String f = "";
         for (Subject subject : schedule) {
             char flag[];
@@ -166,19 +148,6 @@ public class menuEstudiantes extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnShowActionPerformed
 
-    private void txtSemesterKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSemesterKeyTyped
-        char c=evt.getKeyChar();
-        if(c<'0'||c>'9')evt.consume();
-    }//GEN-LAST:event_txtSemesterKeyTyped
-
-    private void txtSemester1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSemester1KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSemester1KeyTyped
-
-    private void txtSemesterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSemesterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSemesterActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -213,15 +182,19 @@ public class menuEstudiantes extends javax.swing.JFrame {
             }
         });
     }
+     public void itemStateChanged(ItemEvent e) {
+        if (e.getSource()==txtSemester) {
+            String semester=(String)txtSemester.getSelectedItem();
+            setTitle(semester);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnShow;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JLabel lblLvls;
     private javax.swing.JTextArea txtDTest;
-    private javax.swing.JTextField txtSemester;
-    private javax.swing.JTextField txtSemester1;
+    private javax.swing.JComboBox<String> txtSemester;
     // End of variables declaration//GEN-END:variables
 }
