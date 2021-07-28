@@ -28,12 +28,12 @@ public class SubjectsCSD {
         Subject subjectMPDS = new Subject("Modelos de Procesos de Desarrollo de Software", "4526", 4, 4);
         Subject subjectSBD = new Subject("Sistemas de Bases de Datos", "4162", 6, 4,"Bases de datos");
         Subject subjectIU = new Subject("Ingenieria de Usabilidad", "4213", 4, 4);
-        Subject subjectCP = new Subject("Computación Paralela", "4619", 4, 4,"Programación");
+        Subject subjectCP = new Subject("Computación Paralela", "4619", 4, 4,"Programacion");
         //---------
         Subject subjectSABD = new Subject("Sistemas Avanzados de Bases de Datos", "5987", 6, 5);//Bases de datos
-        Subject subjectDWA = new Subject("Desarrollo Web Avanzado", "5812", 6, 5);
+        Subject subjectDWA = new Subject("Desarrollo Web Avanzado", "5812", 6, 5,"Desarrollo Web");
         Subject subjectRS = new Subject("Ingenieria de Requisitos de Software", "5253", 6, 5);
-        Subject subjectCG = new Subject("Computacion Grafica", "5000", 4, 5,"Programación");
+        Subject subjectCG = new Subject("Computacion Grafica", "5000", 4, 5,"App Graficas");
         Subject subjectIIS = new Subject("Investigacion en la Ingenieria de Software", "5803", 4, 5);
         Subject subjectRC = new Subject("Redes de Computadores", "5209", 4, 5,"Redes");
         Subject subjectABC = new Subject("Aplicaciones Basadas en el Conocimiento", "6890", 6, 6);
